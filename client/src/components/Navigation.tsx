@@ -3,13 +3,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Register } from "./index";
+import { Register, Login } from "./index";
 import { UserContext } from "../context/UserContext";
 
 const Navigation = () => {
-  const [showReg, setShowReg] = useState(false);
-  // const [ openLogin, setOpenLogin ] = useState(false);
-  const [userData, setUserData] = useContext(UserContext);
+  const [ showReg, setShowReg ] = useState(false);
+  const [ showLogin, setShowLogin ] = useState(false);
+  const [ userData, setUserData ] = useContext(UserContext);
 
   const handleLogout = () => {
     console.log("logout");
@@ -42,7 +42,14 @@ const Navigation = () => {
                       Register
                     </button>
                   </Nav.Link>
-                  <Nav.Link href="#link">Login</Nav.Link>
+                  <Nav.Link>
+                    <button
+                      className="btn btn-link"
+                      onClick={() => setShowLogin(true)}
+                    >
+                      Log In
+                    </button>
+                  </Nav.Link>
                 </>
               )}
             </Nav>
@@ -50,6 +57,7 @@ const Navigation = () => {
         </Container>
       </Navbar>
       <Register onHide={() => setShowReg(false)} show={showReg} />
+      <Login onHide={() => setShowLogin(false)} show={showLogin} />
     </>
   );
 };
