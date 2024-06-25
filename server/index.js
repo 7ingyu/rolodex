@@ -3,12 +3,17 @@ const app = express()
 const port = 3000
 const { sequelize } = require('./models')
 
+app.use(express.json())
+
+// Controllers
+app.use('/api/users', require('./controller/users'))
+
+// Server Front-end
 app.get('/', (req, res) => {
   // send my front-end
 
 })
 
-// app.use('/api', )
 
 app.listen(port, async () => {
   try {
