@@ -41,7 +41,6 @@ const Register = (props: ModalProps) => {
       <Modal.Body>
         <form onSubmit={handleSubmit}>
           <div>
-          <div className="mt-3">
             <label className="form-label" htmlFor="reg-name">
               Name
             </label>
@@ -57,6 +56,7 @@ const Register = (props: ModalProps) => {
               required
             />
           </div>
+          <div className="mt-3">
             <label className="form-label" htmlFor="reg-email">
               Email
             </label>
