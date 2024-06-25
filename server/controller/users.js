@@ -12,7 +12,13 @@ router.post('/register', async (req, res) => {
     const { name, email, password } = req.body
     const hash = await bcrypt.hash(password, saltRounds)
     const user = await User.create({ name, email, password: hash })
-    res.json(user)
+    return res.json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Server Error' })

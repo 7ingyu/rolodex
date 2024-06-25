@@ -1,7 +1,9 @@
 type UserData = {
-  id: number;
-  name: string;
-  email: string;
+  id: number
+  name: string
+  email: string
+  createdAt: string
+  updatedAt: string
 };
 
-export default UserData;
+export default UserData
