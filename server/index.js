@@ -7,6 +7,7 @@ app.use(express.json())
 
 // Controllers
 app.use('/api/users', require('./controller/users'))
+app.use('/api/contacts', require('./controller/contacts'))
 
 // Server Front-end
 app.get('/', (req, res) => {
