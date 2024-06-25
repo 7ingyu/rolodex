@@ -1,9 +1,12 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useContext } from "react";
 import type { ModalProps } from "../types";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import axios from "axios";
+import { UserContext } from "../context/UserContext";
+import type { UserData } from "../types";
 
 const Register = (props: ModalProps) => {
+  const [ userData, setUserData ] = useContext(UserContext)
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
@@ -17,7 +20,8 @@ const Register = (props: ModalProps) => {
     try {
       setShowError(false);
       console.log(userInfo)
-      await axios.post("/api/users/register", userInfo);
+      const { data } = await axios.post("/api/users/register", userInfo);
+      if (setUserData) setUserData(data)
       props.onHide();
     } catch (error) {
       console.error(error);

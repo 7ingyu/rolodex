@@ -1,3 +1,4 @@
+import App from '../App'
 import { Navigation } from "../components"
 
 const Home = () => {
@@ -11,4 +12,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default () => <App><Home /></App>
