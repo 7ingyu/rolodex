@@ -3,10 +3,9 @@ import type { ModalProps } from "../types";
 import { Modal } from "react-bootstrap";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
-import type { UserData } from "../types";
 
 const Register = (props: ModalProps) => {
-  const [ userData, setUserData ] = useContext(UserContext)
+  const [ _, setUserData ] = useContext(UserContext)
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
