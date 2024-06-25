@@ -1,6 +1,13 @@
+import { Navigation } from "../components"
+
 const Home = () => {
   return (
-    <h1>Home</h1>
+    <>
+      <Navigation />
+      <main className="container">
+        <h1>Home</h1>
+      </main>
+    </>
   )
 }
 
